@@ -10,5 +10,6 @@ jobs:
         steps:
             - name: Deploying everything to the bms-dev cluster
               run: |
-                
+                echo "${{ secrets.SSH_PRIVATE_KEY }}" &> ~/ssh_key
+                ssh -i ~/ssh_key ubuntu@15.206.195.188
 
