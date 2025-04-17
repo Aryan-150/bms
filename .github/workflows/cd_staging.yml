@@ -15,5 +15,5 @@ jobs:
                 touch ~/.ssh/known_hosts
                 echo "${{ secrets.KNOWN_HOSTS }}" &> ~/.ssh/known_hosts 
                 chmod 700 ~/ssh_key
-                ssh -i ~/ssh_key ubuntu@15.206.195.188 -t "cd bms && export NVM_DIR="$HOME/.nvm" && source "$NVM_DIR/nvm.sh" && nvm use 22.13.1 && pnpm install && pnpm turbo db:migrate && pnpm turbo db:generate && pnpm run build && pm2 restart http-server && pm2 restart ws-server && pm2 restart fe-server"
+                ssh -i ~/ssh_key ubuntu@15.206.195.188 -t "cd bms && source "$NVM_DIR/nvm.sh" && nvm use 22.13.1 && pnpm install && pnpm turbo db:migrate && pnpm turbo db:generate && pnpm run build && pm2 restart http-server && pm2 restart ws-server && pm2 restart fe-server"
 
