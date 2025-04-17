@@ -5,7 +5,7 @@ export default async function Home() {
   const user = await prisma.user.findFirst();
   return (
     <div className={styles.page}>
-      {JSON.stringify(user) ?? "No user added yet"}
+      {"username: " + user?.username}
     </div>
   );
 }
