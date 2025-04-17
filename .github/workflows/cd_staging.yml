@@ -1,0 +1,14 @@
+name: Deploy to the bms-dev
+
+on:
+    push:
+        branches: [ main ]
+
+jobs:
+    redeploy_everything:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Deploying everything to the bms-dev cluster
+              run: |
+                
+
