@@ -11,9 +11,10 @@ jobs:
             - name: Deploying everything to the bms-dev cluster
               run: |
                 echo "${{ secrets.SSH_PRIVATE_KEY }}" &> ~/ssh_key
-                mkdir ~/.ssh
-                touch ~/.ssh/known_hosts
-                echo "${{ secrets.KNOWN_HOSTS }}" &> ~/.ssh/known_hosts 
-                chmod 700 ~/ssh_key
-                ssh -i ~/ssh_key ubuntu@15.206.195.188
+                mkdir /home/runner/.ssh
+                ls /home/runner/.ssh
+                touch /home/runner/.ssh/known_hosts
+                echo "${{ secrets.KNOWN_HOSTS }}" &> /home/runner/.ssh/known_hosts 
+                chmod 700 /home/runner/ssh_key
+                ssh -i ~/ssh_key ubuntu@15.206.195.188 -t "cd bms"
 
